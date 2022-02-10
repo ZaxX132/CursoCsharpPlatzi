@@ -4,7 +4,7 @@ using System.Text;
 
 namespace gameEngine.Entities
 {
-    public class mageCharacter
+    public class mageCharacter:character
     {
         public string armorType = "cloth";
         public double manaPoints { get; set; }

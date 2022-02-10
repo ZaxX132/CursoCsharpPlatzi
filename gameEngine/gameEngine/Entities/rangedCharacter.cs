@@ -4,7 +4,7 @@ using System.Text;
 
 namespace gameEngine.Entities
 {
-    public class rangedCharacter
+    public class rangedCharacter:character
     {
         public string armorType = "leather";
         public double energyPoints { get; set; }
