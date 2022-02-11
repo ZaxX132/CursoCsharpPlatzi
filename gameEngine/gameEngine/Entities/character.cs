@@ -16,7 +16,6 @@ namespace gameEngine.Entities
         public double intelect { get; set; }
         public double stamina { get; set; }
         public double spirit { get; set; }
-        public List<hability> Habilities { get; set; }= new List<hability>();
 
     }
 }

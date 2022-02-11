@@ -54,8 +54,8 @@ namespace gameEngine.Util
         public List<rangedCharacter> generateRangedCharacter(int cantidad)
         {
             Random rnd = new Random();
-            string[] name1 = { "franco", "pedro" };
-            string[] name2 = { "alva", "picapiedra" };
+            string[] name1 = { "Sylvanas", "Ashe" };
+            string[] name2 = { "Windrunner", "Hawk" };
 
             var listRangedCharacter = from n1 in name1
                                      from n2 in name2
@@ -95,8 +95,8 @@ namespace gameEngine.Util
         public List<mageCharacter> generateMageCharacter(int cantidad)
         {
             Random rnd = new Random();
-            string[] name1 = { "franco", "pedro" };
-            string[] name2 = { "alva", "picapiedra" };
+            string[] name1 = { "Dumbledore", "Merlin" };
+            string[] name2 = { "Albus", "Proudmure" };
 
             var listMageCharacter = from n1 in name1
                                      from n2 in name2
@@ -126,12 +126,33 @@ namespace gameEngine.Util
                 }
                 Console.WriteLine("\nhealtPoints: " + mage.healtPoints + "");
                 Console.WriteLine("armor: " + mage.armor + "");
-                Console.WriteLine("strength: " + mage.agility + "");
+                Console.WriteLine("intelect: " + mage.intelect + "");
                 Console.WriteLine("stamina: " + mage.stamina + "");
                 Console.WriteLine("Your class is: mage " + mage.characterClass);
                 Console.WriteLine("================================\n");
 
             }
+        }
+        public List<character> characterList(List<meleeCharacter> meleeList,List<rangedCharacter> rangedList,List<mageCharacter> mageList)
+        {
+            List<character> characterlist = new List<character>();
+            character chara=new character();
+            foreach (meleeCharacter character in meleeList)
+            {
+                chara = character;
+                characterlist.Add(chara);
+            }
+            foreach (rangedCharacter character in rangedList)
+            {
+                chara = character;
+                characterlist.Add(chara);
+            }
+            foreach (mageCharacter character in mageList)
+            {
+                chara = character;
+                characterlist.Add(chara);
+            }
+            return characterlist;
         }
     }
 }

@@ -11,11 +11,21 @@ namespace gameEngine.App
     {
         methodsHabilities methodsHabilities=new methodsHabilities();
         methodsCharacters methodsCharacters=new methodsCharacters();
+        initializeGame iniGame=new initializeGame();
+        List<character> lCharacters=new List<character>();
+        List<meleeCharacter> lMeleeCharacters=new List<meleeCharacter>();
+        List<rangedCharacter> lRangedCharacters=new List<rangedCharacter>();
+        List<mageCharacter> lMageCharacters=new List<mageCharacter>();
+        game obGame=new game();
         public void initialize()
         {
-            methodsCharacters.meleeCharacterList(2);
-            methodsCharacters.rangedCharacterList(2);
-            methodsCharacters.MageCharacterList(2);
+
+            lMeleeCharacters = methodsCharacters.generateMeleeCharacter(3);
+            lRangedCharacters = methodsCharacters.generateRangedCharacter(3);
+            lMageCharacters = methodsCharacters.generateMageCharacter(3);
+            lCharacters=methodsCharacters.characterList(lMeleeCharacters, lRangedCharacters,lMageCharacters);
+            obGame=iniGame.iniGame(lCharacters,"jueguito",2022,dificulty.Nightmare);
+            iniGame.listIniGame(obGame);
         }
     }
 }
