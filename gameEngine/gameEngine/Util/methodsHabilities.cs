@@ -7,6 +7,7 @@ namespace gameEngine.Util
 {
     public class methodsHabilities
     {
+        //GENERANDO LAS HABILIDADES DE ENERGIA
         public List<habilityEnergy> generateHabilitiesEnergyMelee(int cantidad)
         {
             Random rnd = new Random();
@@ -31,16 +32,13 @@ namespace gameEngine.Util
 
             return listHabilityEnergie.OrderBy((al) => al.habiltyId).Take(cantidad).ToList();
         }
-        public List<habilityEnergy> randomHabilitiesEnergy(int cantidad,int characterClass)
+        public List<habilityEnergy> randomHabilitiesEnergy(int cantidad,int characterClass,List<habilityEnergy>habilityEnergy)
         {
             List<habilityEnergy> habilityEnergies = new List<habilityEnergy>();
             List<habilityEnergy> habilityEnergiesM = new List<habilityEnergy>();
             List<habilityEnergy> habilityEnergiesCharacter = new List<habilityEnergy>();
             Random rnd = new Random();
-            habilityEnergies.AddRange(generateHabilitiesEnergyMelee(25));
-            habilityEnergies.AddRange(generateHabilitiesEnergyRanged(25));
-
-            foreach (var hability in habilityEnergies)
+            foreach (var hability in habilityEnergy)
             {
                 if (hability.habilityClass == characterClass)
                 {
@@ -56,12 +54,10 @@ namespace gameEngine.Util
             return habilityEnergiesCharacter;
 
         }
-        public void energyHabilitiesList()
+        public void energyHabilitiesList(List<habilityEnergy> habilityEnergies)
         {
-            List<habilityEnergy> habilityEnergies = new List<habilityEnergy>();
             Random rnd = new Random();
-            habilityEnergies.AddRange(generateHabilitiesEnergyMelee(25));
-            habilityEnergies.AddRange(generateHabilitiesEnergyRanged(25));
+
             foreach (var hability in habilityEnergies)
             {
                 Console.WriteLine("Name: " + hability.name);
@@ -70,6 +66,7 @@ namespace gameEngine.Util
                 Console.WriteLine("Efect: " + hability.effect + "\n");
             }
         }
+        //GENERANDO LAS HABILIDADES DE MANA
         public List<habilityMana> generateHabilitiesMana(int cantidad)
         {
             Random rnd = new Random();
@@ -82,9 +79,9 @@ namespace gameEngine.Util
 
             return listHabilityMana.OrderBy((al) => al.habiltyId).Take(cantidad).ToList();
         }
-        public void manaHabilitiesList(int cantidad)
+        public void manaHabilitiesList(List<habilityMana> habilityMana)
         {
-            foreach (var hability in generateHabilitiesMana(cantidad))
+            foreach (var hability in habilityMana)
             {
                 Console.WriteLine("Name: " + hability.name);
                 Console.WriteLine("Cost: " + hability.habilityCost);
@@ -92,13 +89,11 @@ namespace gameEngine.Util
                 Console.WriteLine("Efect: " + hability.effect + "\n");
             }
         }
-        public List<habilityMana> randomHabilitiesMana(int cantidad,int characterClass)
+        public List<habilityMana> randomHabilitiesMana(int cantidad,int characterClass,List<habilityMana>habilityMana)
         {
-            List<habilityMana> habilityMana = new List<habilityMana>();
             List<habilityMana> habilityMana2 = new List<habilityMana>();
             List<habilityMana> habilityManaCharacter = new List<habilityMana>();
             Random rnd = new Random();
-            habilityMana.AddRange(generateHabilitiesMana(25));
 
             foreach (var hability in habilityMana)
             {
@@ -115,6 +110,24 @@ namespace gameEngine.Util
             }
             return habilityManaCharacter;
 
+        }
+        //LISTA DE HABILIDADES
+        public List<hability> habilityList(List<habilityEnergy> energyList, List<habilityMana> manaList)
+        {
+            List<hability> habilityList = new List<hability>();
+            hability hab = new hability();
+            foreach (habilityEnergy hability in energyList)
+            {
+                hab = hability;
+                habilityList.Add(hab);
+            }
+            foreach (habilityMana hability in manaList)
+            {
+                hab = hability;
+                habilityList.Add(hab);
+            }
+            
+            return habilityList;
         }
         public methodsHabilities()
         {

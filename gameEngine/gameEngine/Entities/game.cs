@@ -10,7 +10,7 @@ namespace gameEngine.Entities
         public int CreationAge { get; set; }    
         public dificulty dificulty { get; set; }    
         public List<character> characters { get; set;}
-        
+        public List<hability> habilities { get; set;}
         public game (string namec,int age,dificulty dificultyc)=>(name,CreationAge,dificulty)=(namec,age,dificultyc);
         public game()
         {

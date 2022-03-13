@@ -10,7 +10,9 @@ namespace gameEngine.Util
     public class methodsCharacters
     {
         methodsHabilities methodsHabilities = new methodsHabilities();
-        public List<meleeCharacter> generateMeleeCharacter(int cantidad)
+
+        //GENERANDO A LOS PERSONAJES MELEE
+        public List<meleeCharacter> generateMeleeCharacter(int cantidad,List<habilityEnergy> habilityEnergy)
         {
             Random rnd = new Random();
             string[] name1 = { "franco", "pedro" };
@@ -22,7 +24,7 @@ namespace gameEngine.Util
                                      {
                                          name = $"{n1} {n2}",
                                          characterClass = 1,
-                                         hEnergy = methodsHabilities.randomHabilitiesEnergy(5,1),
+                                         hEnergy = methodsHabilities.randomHabilitiesEnergy(5,1, habilityEnergy),
                                          healtPoints = rnd.Next(200, 400),
                                          armor = rnd.Next(200, 300),
                                          strength = rnd.Next(30, 100),
@@ -31,9 +33,9 @@ namespace gameEngine.Util
 
             return listMeleeCharacter.OrderBy((al) => al.uniqueId).Take(cantidad).ToList();
         }
-        public void meleeCharacterList(int cantidad)
+        public void meleeCharacterList(List<meleeCharacter>meleec)
         {
-            foreach (var melee in generateMeleeCharacter(cantidad))
+            foreach (var melee in meleec)
             {
                 Console.WriteLine("Name: " + melee.name + "\n");
                 int i = 0;
@@ -51,7 +53,8 @@ namespace gameEngine.Util
 
             }
         }
-        public List<rangedCharacter> generateRangedCharacter(int cantidad)
+        //GENERANDO A LOS PERSONAJES RANGED
+        public List<rangedCharacter> generateRangedCharacter(int cantidad,List<habilityEnergy> habilityEnergy)
         {
             Random rnd = new Random();
             string[] name1 = { "Sylvanas", "Ashe" };
@@ -63,7 +66,7 @@ namespace gameEngine.Util
                                      {
                                          name = $"{n1} {n2}",
                                          characterClass=0,
-                                         hEnergy= methodsHabilities.randomHabilitiesEnergy(5,0),
+                                         hEnergy= methodsHabilities.randomHabilitiesEnergy(5,0,habilityEnergy),
                                          healtPoints = rnd.Next(200, 400),
                                          armor = rnd.Next(200, 300),
                                          agility = rnd.Next(30, 100),
@@ -72,9 +75,9 @@ namespace gameEngine.Util
 
             return listRangedCharacter.OrderBy((al) => al.uniqueId).Take(cantidad).ToList();
         }
-        public void rangedCharacterList(int cantidad)
+        public void rangedCharacterList(List<rangedCharacter> rangedCharacter)
         {
-            foreach (var ranged in generateRangedCharacter(cantidad))
+            foreach (var ranged in rangedCharacter)
             {
                 Console.WriteLine("Name: " + ranged.name + "\n");
                 int i = 0;
@@ -92,7 +95,8 @@ namespace gameEngine.Util
 
             }
         }
-        public List<mageCharacter> generateMageCharacter(int cantidad)
+        //GENERANDO A LOS PERSONAJES MAGE
+        public List<mageCharacter> generateMageCharacter(int cantidad,List<habilityMana> habilityMana)
         {
             Random rnd = new Random();
             string[] name1 = { "Dumbledore", "Merlin" };
@@ -104,7 +108,7 @@ namespace gameEngine.Util
                                      {
                                          name = $"{n1} {n2}",
                                          characterClass = 2,
-                                         hMana = methodsHabilities.randomHabilitiesMana(5, 2),
+                                         hMana = methodsHabilities.randomHabilitiesMana(5, 2, habilityMana),
                                          healtPoints = rnd.Next(200, 400),
                                          armor = rnd.Next(200, 300),
                                          intelect = rnd.Next(30, 100),
@@ -113,9 +117,9 @@ namespace gameEngine.Util
 
             return listMageCharacter.OrderBy((al) => al.uniqueId).Take(cantidad).ToList();
         }
-        public void MageCharacterList(int cantidad)
+        public void MageCharacterList(List<mageCharacter>mageCharacters)
         {
-            foreach (var mage in generateMageCharacter(cantidad))
+            foreach (var mage in mageCharacters)
             {
                 Console.WriteLine("Name: " + mage.name + "\n");
                 int i = 0;

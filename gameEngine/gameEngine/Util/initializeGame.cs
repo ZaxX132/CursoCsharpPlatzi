@@ -7,13 +7,14 @@ namespace gameEngine.Util
     public class initializeGame
     {
         game game = new game();
-        public game iniGame(List<character> listCharacter,string name,int creationAge,dificulty dificulty)
+        public game iniGame(List<character> listCharacter,string name,int creationAge,dificulty dificulty,List<hability> listHabilities)
         {
             game=new game();
             game.name=name;
             game.dificulty=dificulty;
             game.CreationAge=creationAge;
             game.characters=listCharacter;
+            game.habilities = listHabilities;
             return game;
         }
         public void listIniGame(game obGame)
