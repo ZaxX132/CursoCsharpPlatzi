@@ -18,7 +18,7 @@ namespace gameEngine.Util
                                       from n2 in name2
                                       select new habilityEnergy { name = $"{n1} {n2}", habilityCost = rnd.Next(5, 61), habilityClass = 1, effect = "nothing uwu" };
 
-            return listHabilityEnergie.OrderBy((al) => al.habiltyId).Take(cantidad).ToList();
+            return listHabilityEnergie.OrderBy((al) => al.uniqueId).Take(cantidad).ToList();
         }
         public List<habilityEnergy> generateHabilitiesEnergyRanged(int cantidad)
         {
@@ -30,7 +30,7 @@ namespace gameEngine.Util
                                       from n2 in name2
                                       select new habilityEnergy { name = $"{n1} {n2}", habilityCost = rnd.Next(5, 61), habilityClass = 0, effect = "nothing uwu" };
 
-            return listHabilityEnergie.OrderBy((al) => al.habiltyId).Take(cantidad).ToList();
+            return listHabilityEnergie.OrderBy((al) => al.uniqueId).Take(cantidad).ToList();
         }
         public List<habilityEnergy> randomHabilitiesEnergy(int cantidad,int characterClass,List<habilityEnergy>habilityEnergy)
         {
@@ -77,7 +77,7 @@ namespace gameEngine.Util
                                       from n2 in name2
                                       select new habilityMana { name = $"{n1} {n2}", habilityCost = rnd.Next(5, 200), habilityClass = 2, effect = "nothing uwu" };
 
-            return listHabilityMana.OrderBy((al) => al.habiltyId).Take(cantidad).ToList();
+            return listHabilityMana.OrderBy((al) => al.uniqueId).Take(cantidad).ToList();
         }
         public void manaHabilitiesList(List<habilityMana> habilityMana)
         {

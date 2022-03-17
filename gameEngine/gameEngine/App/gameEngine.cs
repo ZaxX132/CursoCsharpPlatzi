@@ -38,7 +38,7 @@ namespace gameEngine.App
             lhabilityEnergies.AddRange(lhabilityEnergiesRanged);
             lHabilities.AddRange(lhabilityMana);
             lHabilities.AddRange(lhabilityEnergies);
-            //generando a los personajes colocando las habilidades previamente generadas
+            //generando a los personajes y colocando en estos las habilidades previamente generadas
             lMeleeCharacters = methodsCharacters.generateMeleeCharacter(3,lhabilityEnergies);
             lRangedCharacters = methodsCharacters.generateRangedCharacter(3, lhabilityEnergies);
             lMageCharacters = methodsCharacters.generateMageCharacter(3,lhabilityMana);
@@ -46,7 +46,7 @@ namespace gameEngine.App
             //Inicializando el objeto Juego
             obGame=iniGame.iniGame(lCharacters,"jueguito",2022,dificulty.Nightmare, lHabilities);
             iniGame.listIniGame(obGame);
-            dictionary.characterDictionary(lMageCharacters, lMeleeCharacters, lRangedCharacters);
+            dictionary.printDictionary(dictionary.gameDictionary(obGame));
 
 
         }
