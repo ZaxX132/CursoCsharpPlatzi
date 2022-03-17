@@ -32,5 +32,11 @@ namespace gameEngine.Util
             }
             Console.WriteLine("==============================");
         }
+        public void writeTitle(string title)
+        {
+            Console.WriteLine("==============================");
+            Console.WriteLine("El tipo de dato es: " + title);
+            Console.WriteLine("==============================");
+        }
     }
 }

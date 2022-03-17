@@ -4,10 +4,13 @@ using System.Text;
 
 namespace gameEngine.Entities
 {
-    public class hability
+    public class hability:gameBaseObject
     {
-        public string habiltyId { get; set; }
-        public string name { get; set; } 
         public string effect { get; set; }
+        public override string ToString()
+        {
+
+            return $"{name},{uniqueId}";
+        }
     }
 }

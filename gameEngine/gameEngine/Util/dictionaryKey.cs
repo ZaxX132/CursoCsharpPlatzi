@@ -4,14 +4,15 @@ using System.Text;
 
 namespace gameEngine.Util
 {
-    public struct dictionaryKey
+    public enum dictionaryKey
     {
-        public const string mageC = "mageCharacter";
-        public const string meleeC = "meleeCharacter";
-        public const string rangedC = "rangedCharacter";
-
-        public const string habilityM = "HabilityMana";
-        public const string habilityE = "habilityEnergy";
-
+        mageCharacter,
+        meleeCharacter,
+        rangedCharacter,
+        game,
+        hability,
+        character,
+        habilityEnergy,
+        habilityMana
     }
 }

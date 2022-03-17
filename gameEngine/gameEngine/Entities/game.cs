@@ -4,9 +4,9 @@ using System.Text;
 
 namespace gameEngine.Entities
 {
-    public class game
+    public class game:gameBaseObject
     {
-        public string name { get; set; }
+
         public int CreationAge { get; set; }    
         public dificulty dificulty { get; set; }    
         public List<character> characters { get; set;}
@@ -15,6 +15,11 @@ namespace gameEngine.Entities
         public game()
         {
 
+        }
+        public override string ToString()
+        {
+
+            return $"{name},{dificulty}";
         }
     }
 }
